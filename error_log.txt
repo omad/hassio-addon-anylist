@@ -1,0 +1,27 @@
+error: builder for '/nix/store/yd8c185wbkrgcb9d09wqa6g7cl1z3m7r-anylist-1.0.0.drv' failed with exit code 1;
+       last 25 log lines:
+       > node_modules/mime/src/build.js: interpreter directive changed from "#!/usr/bin/env node" to "/nix/store/abxz7wpw5kwaijzzmf8rl4ga981vk8pc-nodejs-22.16.0/bin/node"
+       > node_modules/uuid/bin/uuid: interpreter directive changed from "#!/usr/bin/env node" to "/nix/store/abxz7wpw5kwaijzzmf8rl4ga981vk8pc-nodejs-22.16.0/bin/node"
+       > rebuilt dependencies successfully
+       > patching script interpreter paths in node_modules
+       > Finished npmConfigHook
+       > Running phase: updateAutotoolsGnuConfigScriptsPhase
+       > Running phase: configurePhase
+       > no configure script, doing nothing
+       > Running phase: buildPhase
+       > Executing npmBuildHook
+       > npm error Missing script: "build"
+       > npm error
+       > npm error To see a list of scripts, run:
+       > npm error   npm run
+       > npm error Log files were not written due to an error writing to the directory: /nix/store/02lvs4576zsn5kfv3ng6hd92bg6xv8rr-anylist-1.0.0-npm-deps/_logs
+       > npm error You can rerun the command with `--loglevel=verbose` to see the logs in your terminal
+       >
+       > ERROR: `npm build` failed
+       >
+       > Here are a few things you can try, depending on the error:
+       > 1. Make sure your build script (build) exists
+       >   If there is none, set `dontNpmBuild = true`.
+       > 2. If the error being thrown is something similar to "error:0308010C:digital envelope routines::unsupported", add `NODE_OPTIONS = "--openssl-legacy-provider"` to your derivation
+       >   See https://github.com/webpack/webpack/issues/14532 for more information.
+       >

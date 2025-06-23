@@ -28,7 +28,12 @@
           #          specified: sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
           #             got:    sha256-...........................................
           # Replace the placeholder with the "got" hash.
-          npmDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+          npmDepsHash = "sha256-UREIk+5l2hEUp2L/wdyUhBYDrIvLcd95+0aJ745wRL4=";
+
+          # The original error indicates "npm error Missing script: "build"".
+          # Since the package.json only has a "start" script and no "build" script,
+          # we instruct buildNpmPackage not to run the build phase.
+          dontNpmBuild = true;
 
           # Remove git from buildInputs, buildNpmPackage should handle it if needed.
           # nativeBuildInputs = [ pkgs.git ];
@@ -61,7 +66,7 @@
         packages.default = anylist-pkg;
         packages.anylist = anylist-pkg;
 
-        nixosModules.default = {
+        nixosModules.default = {config, ...}: {
           options = {
             services.anylist = {
               enable = lib.mkEnableOption "Enable the Anylist service";
